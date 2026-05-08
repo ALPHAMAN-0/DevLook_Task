@@ -16,3 +16,6 @@ pnpm-debug.log*
 
 # OS files
 .DS_Store
+
+# Tooling
+mobile version/.claude/
