@@ -51,9 +51,14 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           <div className="absolute top-0 left-0 z-40 w-full px-5 py-4 flex items-center justify-between">
             <a
               href="https://riseatseven.com/"
-              className="text-white text-base font-medium tracking-tight font-sans-primary inline-flex items-baseline"
+              className="text-white text-base font-medium tracking-tight font-sans-primary inline-flex items-center"
             >
-              Rise at Seven
+              Rise at Seve
+              <img
+                src="/favicon.ico"
+                alt="n"
+                className="inline-block h-[0.85em] w-auto ml-px"
+              />
               <sup className="text-[0.5em] ml-0.5 align-super">®</sup>
             </a>
             {!menuOpen && (

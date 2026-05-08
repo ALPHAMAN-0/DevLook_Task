@@ -151,9 +151,14 @@ export default function Header({ menuOpen, setMenuOpen }) {
           <div className="flex items-center justify-between p-4 border-b border-white/10">
             <a
               href="https://riseatseven.com/"
-              className="text-white text-lg font-medium tracking-tight font-sans-primary"
+              className="text-white text-lg font-medium tracking-tight font-sans-primary inline-flex items-center"
             >
-              Rise at Seven
+              Rise at Seve
+              <img
+                src="/favicon.ico"
+                alt="n"
+                className="inline-block h-[0.85em] w-auto ml-px"
+              />
             </a>
             <button
               type="button"

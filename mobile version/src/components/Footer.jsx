@@ -185,7 +185,11 @@ export default function Footer() {
 
             <div className="col-span-12 mt-6">
               <div className="text-white text-7xl/[0.85] font-sans-primary font-medium tracking-tight">
-                Rise at Seven<sup className="text-2xl align-super">®</sup>
+                Rise at Seve<img
+                  src="/favicon.ico"
+                  alt="n"
+                  className="inline-block h-[0.75em] w-auto align-baseline"
+                /><sup className="text-2xl align-super">®</sup>
               </div>
             </div>
 
