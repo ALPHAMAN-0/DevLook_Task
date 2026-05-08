@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import Wordmark from "./Wordmark.jsx";
 
 const heroBackgrounds = [
   "https://rise-atseven.transforms.svdcdn.com/production/images/unnamed-6.png?w=213&h=278&q=100&auto=format&fit=crop&dm=1750948726&s=0ecee9869674cd309d3170dfd7b29674",
@@ -39,7 +38,7 @@ function StarSvg() {
   );
 }
 
-export default function Hero({ menuOpen, setMenuOpen }) {
+export default function Hero() {
   const background = useMemo(
     () => heroBackgrounds[Math.floor(Math.random() * heroBackgrounds.length)],
     []
@@ -49,26 +48,6 @@ export default function Hero({ menuOpen, setMenuOpen }) {
     <section className="w-full py-0">
       <div className="w-full px-0">
         <div className="w-full h-screen-fix h-svh relative p-2">
-          <div className="absolute top-0 left-0 z-40 w-full px-5 py-4 flex items-center justify-between">
-            <a
-              href="https://riseatseven.com/"
-              className="flex w-28 text-white"
-            >
-              <Wordmark className="w-full h-auto" />
-            </a>
-            {!menuOpen && (
-              <button
-                type="button"
-                aria-label="Open menu"
-                onClick={() => setMenuOpen(true)}
-                className="w-12 h-8 inline-flex flex-col items-center justify-center gap-y-[5px] text-white"
-              >
-                <span className="block h-[1.5px] w-5 bg-white" />
-                <span className="block h-[1.5px] w-5 bg-white" />
-              </button>
-            )}
-          </div>
-
           <div className="absolute bottom-0 left-0 z-30 w-full p-7 flex items-end justify-end">
             <div className="w-full text-center">
               <p className="text-sm font-sans-primary leading-normal text-pretty text-white mb-0">

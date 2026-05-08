@@ -47,6 +47,7 @@ export default function CtaButtons() {
               <a
                 key={cta.label}
                 href={cta.href}
+                onClick={(event) => event.preventDefault()}
                 className={`group inline-flex shrink-0 justify-center gap-x-2 items-center leading-tight tracking-tight capitalize font-sans-primary font-medium px-6 py-3 rounded-3xl text-base flex-row-reverse w-full ${variantClasses[cta.variant]}`}
               >
                 <span className="inline-flex items-center gap-x-2">

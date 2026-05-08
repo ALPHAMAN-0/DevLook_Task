@@ -19,7 +19,7 @@ export default function App() {
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <FloatingHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
-        <Hero menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Hero />
         <AgencyBehind />
         <CtaButtons />
         <FeaturedWork />

@@ -207,6 +207,7 @@ export default function Footer() {
                 <span className="w-1 h-1 rounded-full bg-white/60" />
                 <a
                   href="https://riseatseven.com/privacy-policy/"
+                  onClick={(event) => event.preventDefault()}
                   className="underline-offset-2 hover:underline"
                 >
                   Privacy Policy
@@ -214,6 +215,7 @@ export default function Footer() {
                 <span className="w-1 h-1 rounded-full bg-white/60" />
                 <a
                   href="https://riseatseven.com/terms-conditions/"
+                  onClick={(event) => event.preventDefault()}
                   className="underline-offset-2 hover:underline"
                 >
                   Terms &amp; conditions
@@ -221,6 +223,7 @@ export default function Footer() {
               </div>
               <a
                 href="https://madebyshape.co.uk"
+                onClick={(event) => event.preventDefault()}
                 target="_blank"
                 rel="noreferrer"
                 className="text-white/80 font-light leading-tight text-[10px]"

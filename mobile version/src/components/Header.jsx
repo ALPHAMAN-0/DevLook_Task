@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Wordmark from "./Wordmark.jsx";
 
 const navGroups = [
   {
@@ -135,6 +136,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
       <div className="px-2 pt-2 pb-1">
         <a
           href="https://riseatseven.com/category-leaderboard/"
+          onClick={(event) => event.preventDefault()}
           className="group flex justify-center items-center w-full py-2 px-5 text-balance text-center tracking-tight leading-none font-semibold rounded-2xl text-xs text-grey-900 bg-mint"
         >
           🚨 The Category Leaderboard - Live Now
@@ -151,14 +153,10 @@ export default function Header({ menuOpen, setMenuOpen }) {
           <div className="flex items-center justify-between p-4 border-b border-white/0">
             <a
               href="https://riseatseven.com/"
-              className="text-white text-lg font-medium tracking-tight font-sans-primary inline-flex items-center"
+              onClick={(event) => event.preventDefault()}
+              className="flex w-28 text-white"
             >
-              Rise at Seve
-              <img
-                src={`${import.meta.env.BASE_URL}logo-n.png`}
-                alt="n"
-                className="inline-block h-[1em] w-auto ml-px"
-              />
+              <Wordmark className="w-full h-auto" />
             </a>
             <button
               type="button"
@@ -180,6 +178,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
                     <div className="flex items-center justify-between py-1">
                       <a
                         href={group.href}
+                        onClick={(event) => event.preventDefault()}
                         className="text-white text-2xl tracking-tight font-medium leading-tight font-sans-primary"
                       >
                         {group.label}
@@ -205,6 +204,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
                           <a
                             key={child.label}
                             href={child.href}
+                            onClick={(event) => event.preventDefault()}
                             className="inline-flex tracking-tight leading-tight font-medium text-white/90 text-base font-sans-primary"
                           >
                             {child.label}
@@ -221,6 +221,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
           <div className="p-4 pt-2 pb-6">
             <a
               href="https://riseatseven.com/connect-with-us/"
+              onClick={(event) => event.preventDefault()}
               className="inline-flex w-full items-center justify-center gap-x-2 rounded-full bg-white text-grey-900 px-5 py-3.5 text-sm font-medium font-sans-primary tracking-tight"
             >
               Get In Touch
