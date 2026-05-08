@@ -96,6 +96,7 @@ export default function Services() {
               <div key={service.name} className="col-span-12 -my-px">
                 <a
                   href={service.href}
+                  onClick={(event) => event.preventDefault()}
                   className="group relative grid grid-cols-1"
                 >
                   <div className="absolute w-full bottom-0 left-0 z-0">
@@ -120,6 +121,16 @@ export default function Services() {
                 </a>
               </div>
             ))}
+          </div>
+
+          <div className="col-span-12 mt-4">
+            <button
+              type="button"
+              className="inline-flex w-full items-center justify-center gap-x-2 rounded-full bg-white text-grey-900 px-5 py-5 text-base font-medium font-sans-primary tracking-tight"
+            >
+              View All Services
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>

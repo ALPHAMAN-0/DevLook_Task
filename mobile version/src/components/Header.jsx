@@ -148,16 +148,16 @@ export default function Header({ menuOpen, setMenuOpen }) {
         aria-hidden={!menuOpen}
       >
         <div className="w-full h-full bg-grey-900/80 rounded-3xl flex flex-col text-white">
-          <div className="flex items-center justify-between p-4 border-b border-white/10">
+          <div className="flex items-center justify-between p-4 border-b border-white/0">
             <a
               href="https://riseatseven.com/"
               className="text-white text-lg font-medium tracking-tight font-sans-primary inline-flex items-center"
             >
               Rise at Seve
               <img
-                src="/favicon.ico"
+                src={`${import.meta.env.BASE_URL}logo-n.png`}
                 alt="n"
-                className="inline-block h-[0.85em] w-auto ml-px"
+                className="inline-block h-[1em] w-auto ml-px"
               />
             </a>
             <button

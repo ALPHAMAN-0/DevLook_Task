@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const legacyCards = [
   {
     title: "Pioneers",
@@ -33,22 +35,51 @@ const legacyCards = [
 ];
 
 export default function LegacyMaking() {
+  const trackRef = useRef(null);
+  const [progress, setProgress] = useState(1 / legacyCards.length);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    const updateProgress = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) {
+        setProgress(1);
+        return;
+      }
+      const ratio = (el.scrollLeft + el.clientWidth) / el.scrollWidth;
+      setProgress(Math.min(Math.max(ratio, 0), 1));
+    };
+
+    updateProgress();
+    el.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      el.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
+
   return (
-    <section className="w-full pb-12">
-      <div className="w-full px-4">
-        <div className="flex items-end justify-between mb-4">
-          <h2 className="inline-flex flex-wrap text-balance text-left text-grey-900 text-md font-sans-primary font-medium tracking-tight">
+    <section className="w-full py-10">
+      <div className="w-full">
+        <div className="flex justify-center mb-3 px-4">
+          <h2 className="inline-flex flex-wrap text-balance text-center text-grey-900 text-md font-sans-primary font-medium tracking-tight">
             Legacy In The Making
           </h2>
         </div>
 
-        <div className="grid gap-y-3">
+        <div
+          ref={trackRef}
+          className="flex gap-x-3 overflow-x-auto snap-x snap-mandatory px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {legacyCards.map((card) => (
             <article
               key={card.title}
-              className={`rounded-3xl overflow-hidden ${card.background} ${card.textColor}`}
+              className={`shrink-0 snap-center w-[85vw] rounded-2xl p-7 flex flex-col gap-y-4 ${card.background} ${card.textColor}`}
             >
-              <div className="aspect-[5/3] relative overflow-hidden">
+              <div className="rounded-xl overflow-hidden w-full aspect-[4/3] relative">
                 <img
                   src={card.image}
                   alt={card.title}
@@ -56,15 +87,15 @@ export default function LegacyMaking() {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6 flex flex-col gap-y-3">
-                <h3 className="inline-flex flex-wrap text-balance text-center justify-center text-3xl font-sans-primary font-medium tracking-tight">
+              <div className="flex flex-col items-center gap-y-4">
+                <h3 className="text-3xl font-sans-primary font-medium tracking-tight text-center">
                   {card.title}
                 </h3>
-                <div className="flex flex-col gap-y-3">
+                <div className="w-full flex flex-col gap-y-4">
                   {card.body.map((paragraph, index) => (
                     <p
                       key={index}
-                      className="text-sm font-sans-primary leading-normal text-pretty"
+                      className="text-sm font-sans-primary leading-normal text-pretty text-center"
                     >
                       {paragraph}
                     </p>
@@ -73,6 +104,15 @@ export default function LegacyMaking() {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="px-4 mt-3">
+          <div className="w-full h-[3px] bg-grey-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-grey-900 origin-left transition-transform duration-200 ease-out"
+              style={{ transform: `scaleX(${progress})` }}
+            />
+          </div>
         </div>
       </div>
     </section>

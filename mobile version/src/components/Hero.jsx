@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import Wordmark from "./Wordmark.jsx";
 
 const heroBackgrounds = [
   "https://rise-atseven.transforms.svdcdn.com/production/images/unnamed-6.png?w=213&h=278&q=100&auto=format&fit=crop&dm=1750948726&s=0ecee9869674cd309d3170dfd7b29674",
@@ -51,15 +52,9 @@ export default function Hero({ menuOpen, setMenuOpen }) {
           <div className="absolute top-0 left-0 z-40 w-full px-5 py-4 flex items-center justify-between">
             <a
               href="https://riseatseven.com/"
-              className="text-white text-base font-medium tracking-tight font-sans-primary inline-flex items-center"
+              className="flex w-28 text-white"
             >
-              Rise at Seve
-              <img
-                src="/favicon.ico"
-                alt="n"
-                className="inline-block h-[0.85em] w-auto ml-px"
-              />
-              <sup className="text-[0.5em] ml-0.5 align-super">®</sup>
+              <Wordmark className="w-full h-auto" />
             </a>
             {!menuOpen && (
               <button

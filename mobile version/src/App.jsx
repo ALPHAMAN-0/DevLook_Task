@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header.jsx";
+import FloatingHeader from "./components/FloatingHeader.jsx";
 import Hero from "./components/Hero.jsx";
 import AgencyBehind from "./components/AgencyBehind.jsx";
 import CtaButtons from "./components/CtaButtons.jsx";
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <FloatingHeader menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
         <Hero menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <AgencyBehind />

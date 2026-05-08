@@ -1,3 +1,5 @@
+import Wordmark from "./Wordmark.jsx";
+
 const navColumnA = [
   { label: "Services", href: "https://riseatseven.com/services/" },
   { label: "Work", href: "https://riseatseven.com/work/" },
@@ -91,9 +93,17 @@ function FooterLink({ label, href }) {
   return (
     <a
       href={href}
-      className="inline-flex text-white font-medium tracking-tight leading-tight text-lg"
+      onClick={(event) => event.preventDefault()}
+      className="group inline-flex text-white font-medium tracking-tight leading-tight text-lg hover:text-mint"
     >
-      {label}
+      <div className="relative overflow-hidden">
+        <div className="transition duration-300 group-hover:-translate-y-7">
+          {label}
+        </div>
+        <div className="transition duration-300 absolute top-0 left-0 translate-y-7 group-hover:translate-y-0">
+          {label}
+        </div>
+      </div>
     </a>
   );
 }
@@ -127,9 +137,10 @@ export default function Footer() {
                 />
                 <div className="absolute top-0 right-0 p-1.5">
                   <button
-                    type="submit"
+                    type="button"
+                    disabled
                     aria-label="Submit email"
-                    className="size-9 bg-mint text-grey-900 rounded-full flex items-center justify-center cursor-pointer transition"
+                    className="size-9 bg-mint text-grey-900 rounded-full flex items-center justify-center transition"
                   >
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
@@ -142,10 +153,11 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  onClick={(event) => event.preventDefault()}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="inline-flex items-center justify-center size-7 rounded-xl bg-white text-grey-900"
+                  className="inline-flex items-center gap-x-2.5 rounded-xl text-xs px-2 py-1.5 bg-white text-grey-900"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -155,42 +167,34 @@ export default function Footer() {
                   >
                     {social.icon}
                   </svg>
+                  <ArrowUpRight className="w-3 h-3" />
                 </a>
               ))}
             </div>
 
-            <div className="col-span-12 grid grid-cols-2 gap-x-3 gap-y-1.5">
-              <div className="flex flex-col gap-y-1.5">
+            <div className="col-span-12 flex flex-wrap gap-y-10">
+              <div className="flex flex-col items-start gap-y-1.5 border-l border-white/20 pl-3 w-1/2">
                 {navColumnA.map((link) => (
                   <FooterLink key={link.label} {...link} />
                 ))}
-                <div className="border-l border-white/20 pl-3 mt-1 flex flex-col gap-y-1.5">
-                  {navColumnAExtra.map((link) => (
-                    <FooterLink key={link.label} {...link} />
-                  ))}
-                </div>
+                {navColumnAExtra.map((link) => (
+                  <FooterLink key={link.label} {...link} />
+                ))}
               </div>
-              <div className="flex flex-col gap-y-1.5">
+              <div className="flex flex-col items-start gap-y-1.5 border-l border-white/20 pl-3 w-1/2">
                 {navColumnB.map((link) => (
                   <FooterLink key={link.label} {...link} />
                 ))}
               </div>
-            </div>
-
-            <div className="col-span-12 flex flex-col gap-y-1.5">
-              {locationLinks.map((link) => (
-                <FooterLink key={link.label} {...link} />
-              ))}
+              <div className="flex flex-col items-start gap-y-1.5 border-l border-white/20 pl-3 w-1/2">
+                {locationLinks.map((link) => (
+                  <FooterLink key={link.label} {...link} />
+                ))}
+              </div>
             </div>
 
             <div className="col-span-12 mt-6">
-              <div className="text-white text-7xl/[0.85] font-sans-primary font-medium tracking-tight">
-                Rise at Seve<img
-                  src="/favicon.ico"
-                  alt="n"
-                  className="inline-block h-[0.75em] w-auto align-baseline"
-                /><sup className="text-2xl align-super">®</sup>
-              </div>
+              <Wordmark className="w-full h-auto text-white" />
             </div>
 
             <div className="col-span-12 flex flex-col mt-6 gap-y-2">
