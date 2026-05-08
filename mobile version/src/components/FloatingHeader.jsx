@@ -11,7 +11,7 @@ export default function FloatingHeader({ setMenuOpen, menuOpen }) {
       const currentY = window.scrollY;
       const delta = currentY - lastYRef.current;
 
-      setOverHero(currentY < window.innerHeight - 100);
+      setOverHero(currentY < window.innerHeight - 10);
 
       if (currentY < 80) {
         setVisible(true);
@@ -37,7 +37,7 @@ export default function FloatingHeader({ setMenuOpen, menuOpen }) {
 
   return (
     <div
-      className={`fixed top-14 left-2 right-2 z-[55] transition-transform duration-300 ease-out ${
+      className={`fixed top-14 left-2 right-2 z-40 transition-transform duration-300 ease-out ${
         shouldShow ? "translate-y-0" : "-translate-y-[calc(100%+4rem)]"
       }`}
     >
