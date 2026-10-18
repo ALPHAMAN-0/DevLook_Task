@@ -2,6 +2,18 @@
 
 Pixel-accurate mobile homepage replica for https://riseatseven.com/. This project uses a Vite + React wrapper that injects the live homepage HTML so the layout, typography, and motion match the original as closely as possible on mobile.
 
+## Architecture / How it Works
+
+```mermaid
+flowchart LR
+    A[User] --> B[Devlook Task]
+    B --> C{Logic}
+    C --> D[(Data)]
+    C --> E[Output]
+    D --> C
+```
+
+
 ## Scope
 
 - Homepage only
