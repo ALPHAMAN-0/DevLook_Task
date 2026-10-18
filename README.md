@@ -5,12 +5,18 @@ Pixel-accurate mobile homepage replica for https://riseatseven.com/. This projec
 ## Architecture / How it Works
 
 ```mermaid
-flowchart LR
-    A[User] --> B[Devlook Task]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+flowchart TD
+    App --> Header
+    App --> FloatingHeader
+    App --> Hero
+    App --> AgencyBehind
+    App --> CtaButtons
+    App --> FeaturedWork
+    App --> Services
+    App --> ChasingConsumers
+    App --> LegacyMaking
+    App --> WhatsNext
+    App --> Footer
 ```
 
 
